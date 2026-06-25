@@ -839,3 +839,154 @@ input {
 .beers-page .search-bar {
   margin-bottom: 34px;
 }
+.beer-card__favorite--active {
+  color: #1b120b;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-amber));
+}
+
+.navbar__counter {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 999px;
+  color: #1b120b;
+  background: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.favorites-page {
+  width: min(1180px, calc(100% - 32px));
+  margin: 80px auto 120px;
+}
+
+.empty-state {
+  padding: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.empty-state h2 {
+  margin: 0 0 12px;
+}
+
+.empty-state p {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+.beer-of-day {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 100px;
+}
+
+.beer-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+  padding: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(255, 247, 230, 0.1), rgba(255, 247, 230, 0.03)),
+    var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.beer-hero:hover {
+  transform: translateY(-6px);
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.beer-hero__image {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+}
+
+.beer-hero__image img {
+  max-height: 330px;
+  max-width: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.35));
+  animation: floatBeer 4s ease-in-out infinite;
+}
+
+.beer-hero__badge {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.beer-hero h3 {
+  margin: 0 0 12px;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.beer-hero__tagline {
+  color: var(--color-gold);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.beer-hero p {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.beer-hero__stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 26px 0;
+}
+
+.beer-hero__stats span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--color-gold);
+  font-weight: 900;
+}
+
+@keyframes floatBeer {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .beer-hero {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .beer-hero__image {
+    min-height: 280px;
+  }
+
+  .beer-hero__image img {
+    max-height: 250px;
+  }
+}

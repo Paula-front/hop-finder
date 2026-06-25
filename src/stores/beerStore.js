@@ -1,16 +1,43 @@
 import { defineStore } from 'pinia'
 import { getBeers, getBeerById, getRandomBeer } from '../services/beerService'
 
+const FAVORITES_KEY = 'hopFinderFavorites'
+
 export const useBeerStore = defineStore('beer', {
   state: () => ({
     beers: [],
     selectedBeer: null,
     randomBeer: null,
+    favorites: JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [],
     isLoading: false,
     error: null
   }),
 
+  getters: {
+    favoritesCount: (state) => state.favorites.length,
+
+    isFavorite: (state) => {
+      return (beerId) => state.favorites.some((beer) => beer.id === beerId)
+    }
+  },
+
   actions: {
+    saveFavorites() {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(this.favorites))
+    },
+
+    toggleFavorite(beer) {
+      const exists = this.favorites.some((item) => item.id === beer.id)
+
+      if (exists) {
+        this.favorites = this.favorites.filter((item) => item.id !== beer.id)
+      } else {
+        this.favorites.push(beer)
+      }
+
+      this.saveFavorites()
+    },
+
     async fetchBeers(page = 1) {
       this.isLoading = true
       this.error = null

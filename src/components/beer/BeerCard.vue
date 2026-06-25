@@ -1,6 +1,12 @@
 <template>
   <article class="beer-card">
-    <button class="beer-card__favorite" type="button" aria-label="Agregar a favoritos">
+    <button
+      class="beer-card__favorite"
+      :class="{ 'beer-card__favorite--active': beerStore.isFavorite(beer.id) }"
+      type="button"
+      :aria-label="beerStore.isFavorite(beer.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+      @click="beerStore.toggleFavorite(beer)"
+    >
       ♥
     </button>
 
@@ -33,10 +39,14 @@
 </template>
 
 <script setup>
+import { useBeerStore } from '../../stores/beerStore'
+
 defineProps({
   beer: {
     type: Object,
     required: true
   }
 })
+
+const beerStore = useBeerStore()
 </script>
