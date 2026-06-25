@@ -503,3 +503,143 @@ input {
     grid-template-columns: 1fr;
   }
 }
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title__kicker {
+  display: inline-flex;
+  color: var(--color-gold);
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.section-title__heading {
+  margin: 12px 0;
+  font-size: clamp(2rem,5vw,4rem);
+  letter-spacing: -.05em;
+}
+
+.section-title__description {
+  max-width: 620px;
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+.featured-section {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 100px;
+}
+
+.beer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.beer-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 247, 230, 0.08), rgba(255, 247, 230, 0.02)),
+    var(--color-surface);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.beer-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.beer-card__favorite {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-gold);
+  background: rgba(20, 15, 11, 0.7);
+  cursor: pointer;
+}
+
+.beer-card__image-wrap {
+  height: 260px;
+  display: grid;
+  place-items: center;
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.beer-card__image {
+  max-height: 220px;
+  max-width: 70%;
+  object-fit: contain;
+  transition: transform var(--transition);
+}
+
+.beer-card:hover .beer-card__image {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.beer-card__content {
+  padding: 24px;
+}
+
+.beer-card__rating {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--color-gold);
+  font-weight: 900;
+}
+
+.beer-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+}
+
+.beer-card__brewery,
+.beer-card__tagline {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.beer-card__tagline {
+  margin-top: 8px;
+}
+
+.beer-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.beer-card__chips span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--color-gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.beer-card__link {
+  display: inline-flex;
+  margin-top: 22px;
+  color: var(--color-gold);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .beer-grid {
+    grid-template-columns: 1fr;
+  }
+}
