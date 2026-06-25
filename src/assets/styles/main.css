@@ -716,3 +716,11 @@ input {
     grid-template-columns: 1fr;
   }
 }
+.section-status {
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.section-status--error {
+  color: var(--color-gold);
+}

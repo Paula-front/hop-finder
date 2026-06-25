@@ -6,9 +6,17 @@
       description="Una selección inicial para explorar estilos, intensidad y perfiles de sabor."
     />
 
-    <div class="beer-grid">
+    <p v-if="beerStore.isLoading" class="section-status">
+      Cargando cervezas...
+    </p>
+
+    <p v-else-if="beerStore.error" class="section-status section-status--error">
+      {{ beerStore.error }}
+    </p>
+
+    <div v-else class="beer-grid">
       <BeerCard
-        v-for="beer in featuredBeers"
+        v-for="beer in beerStore.beers.slice(0, 3)"
         :key="beer.id"
         :beer="beer"
       />
@@ -17,8 +25,15 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+import { useBeerStore } from '../../stores/beerStore'
+
 import SectionTitle from '../ui/SectionTitle.vue'
 import BeerCard from '../beer/BeerCard.vue'
 
-import { featuredBeers } from '../../data/featuredBeers'
+const beerStore = useBeerStore()
+
+onMounted(() => {
+  beerStore.fetchBeers()
+})
 </script>
