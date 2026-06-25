@@ -990,3 +990,53 @@ input {
     max-height: 250px;
   }
 }
+.did-you-know {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 100px;
+}
+
+.did-you-know__content {
+  position: relative;
+  overflow: hidden;
+  padding: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.2), transparent 34%),
+    linear-gradient(135deg, rgba(255, 247, 230, 0.08), rgba(255, 247, 230, 0.02)),
+    var(--color-surface);
+}
+
+.did-you-know__badge {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.did-you-know h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.05em;
+}
+
+.did-you-know p {
+  max-width: 760px;
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.did-you-know__link {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--color-gold);
+  font-weight: 900;
+  text-decoration: none;
+}
