@@ -19,7 +19,7 @@
         :to="`/beers/${beer.id}`"
         class="search-suggestion"
       >
-        <img :src="beer.image" :alt="beer.name" />
+        <img :src="getBeerImage(beer)" :alt="beer.name" />
         <span>{{ beer.name }}</span>
         <small>{{ beer.style }}</small>
       </RouterLink>
@@ -28,6 +28,8 @@
 </template>
 
 <script setup>
+import { getBeerImage } from '../../utils/beerImage'
+
 defineProps({
   modelValue: {
     type: String,

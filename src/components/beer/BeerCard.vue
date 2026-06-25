@@ -13,7 +13,7 @@
     <div class="beer-card__image-wrap">
       <img
         class="beer-card__image"
-        :src="beer.image"
+        :src="getBeerImage(beer)"
         :alt="beer.name"
       />
     </div>
@@ -40,6 +40,7 @@
 
 <script setup>
 import { useBeerStore } from '../../stores/beerStore'
+import { getBeerImage } from '../../utils/beerImage'
 
 defineProps({
   beer: {

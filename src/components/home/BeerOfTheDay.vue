@@ -13,7 +13,7 @@
     <article v-else-if="beerStore.randomBeer" class="beer-hero">
       <div class="beer-hero__image">
         <img
-          :src="beerStore.randomBeer.image"
+          :src="getBeerImage(beerStore.randomBeer)"
           :alt="beerStore.randomBeer.name"
         />
       </div>
@@ -51,6 +51,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useBeerStore } from '../../stores/beerStore'
+import { getBeerImage } from '../../utils/beerImage'
 
 import SectionTitle from '../ui/SectionTitle.vue'
 

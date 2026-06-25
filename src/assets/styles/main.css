@@ -1252,3 +1252,71 @@ input {
     grid-template-columns: 1fr;
   }
 }
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 15, 11, 0.97) 0%,
+      rgba(20, 15, 11, 0.9) 36%,
+      rgba(20, 15, 11, 0.72) 64%,
+      rgba(20, 15, 11, 0.94) 100%
+    ),
+    url('../images/backgrounds/fondo.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.38;
+  transform: scale(1.02);
+  animation: heroBackgroundZoom 28s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 48%, rgba(251, 191, 36, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 52%, rgba(217, 119, 6, 0.1), transparent 34%);
+  pointer-events: none;
+}
+
+.hero__content,
+.hero__card {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes heroBackgroundZoom {
+  from {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+.beer-card__image {
+  max-height: 240px;
+  max-width: 82%;
+}
+
+.beer-hero__image img {
+  max-height: 380px;
+  max-width: 90%;
+}
+
+.beer-detail__image img {
+  max-height: 480px;
+  max-width: 90%;
+}

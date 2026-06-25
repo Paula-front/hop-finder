@@ -11,7 +11,7 @@
     <article v-else-if="beerStore.selectedBeer" class="beer-detail">
       <div class="beer-detail__image">
         <img
-          :src="beerStore.selectedBeer.image"
+          :src="getBeerImage(beerStore.selectedBeer)"
           :alt="beerStore.selectedBeer.name"
         />
       </div>
@@ -46,6 +46,7 @@
           class="beer-detail__section"
         >
           <h2>Maridaje recomendado</h2>
+
           <ul>
             <li
               v-for="food in beerStore.selectedBeer.foodPairing"
@@ -72,6 +73,7 @@
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useBeerStore } from '../stores/beerStore'
+import { getBeerImage } from '../utils/beerImage'
 
 const route = useRoute()
 const beerStore = useBeerStore()
