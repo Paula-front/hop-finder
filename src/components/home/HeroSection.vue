@@ -13,6 +13,11 @@
         ABV, IBU, IPA y Lager en una experiencia visual e interactiva.
       </p>
 
+      <SearchBar
+        v-model="search"
+        placeholder="Buscar cervezas por nombre o estilo..."
+      />
+
       <div class="hero__actions">
         <RouterLink to="/beers" class="btn btn-primary">
           Explorar cervezas
@@ -36,3 +41,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import SearchBar from '../ui/SearchBar.vue'
+
+const search = ref('')
+</script>
