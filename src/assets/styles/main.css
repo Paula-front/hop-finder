@@ -831,3 +831,11 @@ input {
     max-height: 300px;
   }
 }
+.beers-page {
+  width: min(1180px, calc(100% - 32px));
+  margin: 80px auto 120px;
+}
+
+.beers-page .search-bar {
+  margin-bottom: 34px;
+}
