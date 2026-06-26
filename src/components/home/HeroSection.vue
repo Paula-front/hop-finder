@@ -4,8 +4,8 @@
       <span class="hero__badge">Craft Beer Explorer</span>
 
       <h1>
-        Discover your next
-        <span>favorite beer.</span>
+        Descubre tu Próxima
+        <span>cerveza favorita.</span>
       </h1>
 
       <p>
